@@ -1,0 +1,56 @@
+customer_name = input("Enter customer name: ")
+
+subtotal = 0.0
+item_count = 0
+
+while True:
+    item_name = input("Enter item name (or 'done' to finish): ")
+    if item_name == 'done':
+        break
+    price = float(input("Enter price: "))
+    subtotal += price
+    item_count += 1
+
+print(f"\nCustomer: {customer_name.upper()}")
+print(f"Items: {item_count}")
+print(f"Subtotal {subtotal} KZT")
+
+hour = int(input("\nEnter current hour (0-23): "))
+
+discount_percent = 0
+period = ""
+is_closed = False
+
+if 6 <= hour < 12:
+    period = "Morning discount"
+    discount_percent = 10
+elif 12 <= hour < 17:
+    period = "No discount"
+    discount_percent = 0
+elif 17 <= hour < 22:
+    period = "Evening discount"
+    discount_percent = 5
+else:
+    is_closed = True
+
+if is_closed:
+    print("The cafe is closed")
+else:
+    discount = subtotal * (discount_percent / 100)
+    total_after_discount = subtotal - discount
+    tip = total_after_discount * 0.10
+    final_total = total_after_discount + tip
+
+    print(f"Time period: {period}")
+    print(f"Discount {discount} KZT")
+    print(f"Tip (10%) {tip} KZT")
+    print(f"Total: {final_total} KZT")
+
+print(f"\nName uppercase: {customer_name.upper()}")
+print(f"Name lowercase: {customer_name.lower()}")
+print(f"Name length: {len(customer_name)}")
+
+if customer_name[0].upper() == 'A' or customer_name[0].upper() == 'S':
+    print("VIP customer")
+else:
+    print("Regular customer")
