@@ -75,21 +75,13 @@ class DataAnalyser:
     def analyse(self):
         valid_students = []
 
-        for students in self.students:
-            try:
-            float(students["final"])
-            float(students["gpa"])
-           valid_students.append(self)
-
-           except valueError:
-               print(f"error: not convert{students['students_id']}")
-               continue
-
-           except KeyError:
-               print("error")
-               continue
-
-               top 10
+        for student:
+        valid_students = 
+        top10 = sorted(
+            valid_students,
+            key=lambda student: float(student["final_exam_score"]),
+            reverse=True
+        )[:10]
 
         top_10_list = []
 
